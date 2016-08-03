@@ -2,19 +2,31 @@ angular
     .module('app')
     .controller('IncomeController', IncomeController);
 
-IncomeController.$inject = [];
+IncomeController.$inject = ['dataservice'];
 
-function IncomeController() {
+function IncomeController(dataservice) {
   var vm = this;
   vm.list = [{name: 'Paycheck', category: 'recurring', amount: 778.78},{name: 'Gift', category: 'once', amount: 150.00}];
   vm.add = add;
   activate();
 
   function activate() {
+    get();
   }
 
   function add() {
-    item = this.input;
-    vm.list.push(item);
+    var data = vm.input;
+    return dataservice.AddIncome(data)
+      .then(function() {
+        console.log('added income');
+      });
+  }
+
+  function get() {
+    return dataservice.getIncomes()
+      .then(function(data) {
+        vm.list = data;
+        return vm.list;
+      });
   }
 }
