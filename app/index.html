@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Shoestrings - Budgeting by the Week</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="css/default.css">
   </head>
-  <body>
+  <body ng-app="app">
     <div class="container text-center">
       <div class="col-md-10 col-md-offset-1">
         <h1>Shoestrings!</h1>
+        <topnav></topnav>
         <h2>Let's get budgeting!</h2>
 
         <div class="row">
@@ -33,9 +35,8 @@
         <div class="well">
         </div>
     </div>
-
-    <script>
-      
-    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.module.js"></script>
+    <script src="layout/topnav.directive.js"></script>
   </body>
 </html>
