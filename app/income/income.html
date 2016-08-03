@@ -1,0 +1,25 @@
+<div class="">
+  <table>
+    <thead>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          Category
+        </td>
+        <td>
+          Amount
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="line in income.list">
+        <td>{{line.name}}</td>
+        <td>{{line.category}}</td>
+        <td>{{line.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
