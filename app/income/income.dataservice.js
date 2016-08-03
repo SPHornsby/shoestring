@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .factory('dataservice', dataservice);
+    .factory('incomeService', dataservice);
 
 dataservice.$inject = ['$http'];
 
