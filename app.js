@@ -1,8 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-
-var app = express();
+var incomeData = require('./routes/income-data.js')
 var incomes = require('./routes/incomes.js');
 
 var user = process.env.MDB;
@@ -16,8 +15,10 @@ MongoClient.connect(url, function(err, db) {
     process.exit(1);
   }
 
+  var income = incomeData(db);
+
   express()
-    .use('/incomes', incomes)
+    .use('/incomes', incomes(income))
     .use(express.static('app'))
     .listen(8000);
 })
