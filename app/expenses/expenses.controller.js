@@ -2,13 +2,31 @@ angular
     .module('app')
     .controller('ExpensesController', ExpensesController);
 
-ExpensesController.$inject = [];
+ExpensesController.$inject = ['expenseService'];
 
-function ExpensesController() {
+function ExpensesController(dataservice) {
   var vm = this;
-  vm.list = [{name: 'Rent', category: 'recurring', amount: 400.23},{name: 'Lunch', category: 'food', amount: 15.00}];
+  vm.list = [];
+  vm.add = add;
   activate();
 
   function activate() {
+    get();
+  }
+
+  function add() {
+    var data = vm.input;
+    return dataservice.addIncome(data)
+      .then(function() {
+        get();
+      });
+  }
+
+  function get() {
+    return dataservice.getIncomes()
+      .then(function(data) {
+        vm.list = data;
+        return vm.list;
+      });
   }
 }

@@ -1,25 +1,39 @@
-<div class="">
-  <table>
-    <thead>
-      <tr>
-        <td>
-          Name
-        </td>
-        <td>
-          Category
-        </td>
-        <td>
-          Amount
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="line in expenses.list">
-        <td>{{line.name}}</td>
-        <td>{{line.category}}</td>
-        <td>{{line.amount}}</td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="row expenses">
+  <div class="col-md-10">
+    <div class="col-md-2">
+      <h3>Expenses:</h3>
+    </div>
+    <div class="col-md-2 col-md-offset-8">
+      <button class="btn btn-default" type="" ng-click="expenses.add()">Add</button>
+    </div>
+    <div class="">
+      <table>
+        <thead>
+          <tr>
+            <td>
+              Name
+            </td>
+            <td>
+              Category
+            </td>
+            <td>
+              Amount
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="line in expenses.list">
+            <td>{{line.name}}</td>
+            <td>{{line.category}}</td>
+            <td>{{line.amount}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="new-income">
+        <input type="text" name="name" value="" ng-model="expenses.input.name">
+        <input type="text" name="category" value="" ng-model="expenses.input.category">
+        <input type="text" name="amount" value="" ng-model="expenses.input.amount">
+      </div>
+    </div>
+  </div>
 </div>
