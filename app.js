@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var incomeData = require('./routes/income-data.js')
 var incomes = require('./routes/incomes.js');
+var expensesData = require('./routes/expenses-data.js')
+var expenses = require('./routes/expenses.js');
 
 var user = process.env.MDB;
 var pw = process.env.MDBPW;
@@ -16,9 +18,11 @@ MongoClient.connect(url, function(err, db) {
   }
 
   var income = incomeData(db);
-
+  var expense = expensesData(db);
   express()
+    .use(bodyParser.json())
     .use('/incomes', incomes(income))
+    .use('/expenses', expenses(expense))
     .use(express.static('app'))
     .listen(8000);
 })
