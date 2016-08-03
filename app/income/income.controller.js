@@ -7,8 +7,14 @@ IncomeController.$inject = [];
 function IncomeController() {
   var vm = this;
   vm.list = [{name: 'Paycheck', category: 'recurring', amount: 778.78},{name: 'Gift', category: 'once', amount: 150.00}];
+  vm.add = add;
   activate();
 
   function activate() {
+  }
+
+  function add() {
+    item = this.input;
+    vm.list.push(item);
   }
 }
