@@ -4,7 +4,7 @@
       <h3>Expenses:</h3>
     </div>
     <div class="col-md-2 col-md-offset-8">
-      <button class="btn btn-default" type="" ng-click="expenses.add()">Add</button>
+      <button class="btn btn-default" type="" ng-click="users.addExpense()">Add</button>
     </div>
     <div class="">
       <table>
@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="line in expenses.list">
+          <tr ng-repeat="line in users.expenses">
             <td>{{line.name}}</td>
             <td>{{line.category}}</td>
             <td>{{line.amount}}</td>
