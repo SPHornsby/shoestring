@@ -1,10 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var incomeData = require('./routes/income-data.js')
-var incomes = require('./routes/incomes.js');
-var expensesData = require('./routes/expenses-data.js')
-var expenses = require('./routes/expenses.js');
+var usersData = require('./routes/users-data.js');
+var users = require('./routes/users.js');
+var budgetsData = require('./routes/budgets-data.js');
+var budgets = require('./routes/budgets.js');
+var auth = require('./routes/auth.js');
 
 var user = process.env.MDB;
 var pw = process.env.MDBPW;
@@ -17,12 +18,13 @@ MongoClient.connect(url, function(err, db) {
     process.exit(1);
   }
 
-  var income = incomeData(db);
-  var expense = expensesData(db);
+  var user = usersData(db);
+  var budget = budgetsData(db);
   express()
     .use(bodyParser.json())
-    .use('/incomes', incomes(income))
-    .use('/expenses', expenses(expense))
+    .use(auth)
+    .use('/users', users(user))
+    .use('/budgets', budgets(budget))
     .use(express.static('app'))
     .listen(8000);
 })
