@@ -3,8 +3,6 @@ angular
     .directive('expenses', function() {
       return {
         restrict: 'E',
-        templateUrl: 'expenses/expenses.html',
-        controller: 'ExpensesController',
-        controllerAs: 'expenses'
+        templateUrl: 'expenses/expenses.html'
       };
     });

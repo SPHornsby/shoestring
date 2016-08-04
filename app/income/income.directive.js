@@ -3,8 +3,6 @@ angular
     .directive('income', function() {
       return {
         restrict: 'E',
-        templateUrl: 'income/income.html',
-        controller: 'IncomeController',
-        controllerAs: 'income'
+        templateUrl: 'income/income.html'
       };
     });
