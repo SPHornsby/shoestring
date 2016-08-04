@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Shoestrings - Budgeting by the Week</title>
+    <title>Shoestring - Budgeting by the Week</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/default.css">
@@ -10,13 +10,12 @@
   </head>
   <body ng-app="app">
     <div class=" text-center">
-        <h1>Shoestrings!</h1>
+        <h1>Shoestring!</h1>
         <topnav></topnav>
         <h2>Let's get budgeting!</h2>
         <div class="row">
           <div class="col-md-8">
-            <income></income>
-            <expenses></expenses>
+            <users></users>
           </div>
           <div class="col-md-4">
             <div id="chart-container">
@@ -29,10 +28,11 @@
     <script src="app.module.js"></script>
     <script src="layout/topnav.directive.js"></script>
     <script src="income/income.directive.js"></script>
-    <script src="income/income.controller.js"></script>
-    <script src="income/income.dataservice.js"></script>
+
     <script src="expenses/expenses.directive.js"></script>
-    <script src="expenses/expenses.controller.js"></script>
-    <script src="expenses/expenses.dataservice.js"></script>
+
+    <script src="users/users.directive.js"></script>
+    <script src="users/users.controller.js"></script>
+    <script src="users/users.dataservice.js"></script>
   </body>
 </html>

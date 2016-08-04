@@ -3,7 +3,13 @@
 }
 
 input {
-  width: 30%;
+  background-color: rgba(168, 229, 255, 1);
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  width: 100%;
 }
 
 table {
