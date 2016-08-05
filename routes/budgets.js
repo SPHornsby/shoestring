@@ -40,9 +40,18 @@ module.exports = function budgets(budget) {
   });
   router.put('/week/:weekID', function(req, res, next) {
     var data = req.body;
-    budget.addIncome(data, function(err, doc) {
-      res.send();
-    });
+    if (data.type  === 'incomes') {
+      budget.addIncome(data, function(err, doc) {
+        res.send();
+      });
+    } else if (data.type === 'expenses') {
+      budget.addExpense(data, function(err, doc) {
+        res.send();
+      });
+    } else {
+      res.send("no type");
+    }
+
   });
   return router;
 };
