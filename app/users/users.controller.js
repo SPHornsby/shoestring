@@ -16,7 +16,7 @@ function UsersController(dataservice) {
   activate();
 
   function activate() {
-    getUser();
+    getBudget();
   }
 
   function addIncome() {
@@ -48,17 +48,9 @@ function UsersController(dataservice) {
     var week = vm.week;
     return dataservice.getBudget(week)
       .then(function(data) {
-        console.log(data);
-      });
-  }
-  function getUser() {
-    return dataservice.getUser()
-      .then(function(data){
-        vm.budget = data.data.budgets.filter((budget) => budget.week == vm.week)[0];
+        vm.budget = data.data[0];
         vm.incomes = vm.budget.incomes;
         vm.expenses = vm.budget.expenses;
-
-        //transform data object into pieces for vm
       });
   }
 }

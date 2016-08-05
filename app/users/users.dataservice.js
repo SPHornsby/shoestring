@@ -24,9 +24,7 @@ function usersService($http) {
 
   }
   function getBudget(week) {
-    return $http.get('/budgets/week' + week)
-      .then()
-      .catch();
+    return $http.get('/budgets/week/' + week);
   }
   function getIncomes() {
     return $http.get('/users/user/incomes')
