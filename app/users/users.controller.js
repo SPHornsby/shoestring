@@ -25,6 +25,7 @@ function UsersController(dataservice) {
     data.type = "incomes";
     return dataservice.addIncome(data)
       .then(function() {
+        vm.income = {};
         getBudget();
       });
   }
@@ -36,6 +37,7 @@ function UsersController(dataservice) {
     data.type = "expenses";
     return dataservice.addExpense(data)
       .then(function() {
+        vm.expense = {};
         getBudget();
       });
   }
