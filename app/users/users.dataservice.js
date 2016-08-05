@@ -20,8 +20,11 @@ function usersService($http) {
       .catch();
   }
 
-  function addExpense() {
-
+  function addExpense(data) {
+    console.log(data);
+    return $http.put('/budgets/week/' + data.week , JSON.stringify(data))
+      .then()
+      .catch();
   }
   function getBudget(week) {
     return $http.get('/budgets/week/' + week);
