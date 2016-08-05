@@ -27,7 +27,6 @@ function UsersController(dataservice) {
     console.log(data);
     return dataservice.addIncome(data)
       .then(function() {
-        getUser();
         getBudget();
       });
   }
