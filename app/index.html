@@ -2,41 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Shoestrings - Budgeting by the Week</title>
+    <title>Shoestring - Budgeting by the Week</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/default.css">
+
   </head>
   <body ng-app="app">
-    <div class="container text-center">
-      <div class="col-md-10 col-md-offset-1">
-        <h1>Shoestrings!</h1>
-        <topnav></topnav>
-        <h2>Let's get budgeting!</h2>
+    <div class=" text-center">
+        <!-- <topnav></topnav> -->
+        <h1>Shoestring - Your Weekly Budget</h1>
+        <div class="row">
+          <div class="col-md-8">
+            <users></users>
+          </div>
+          <div class="col-md-4">
+            <div id="chart-container">
 
-        <div class="row">
-          <div class="col-md-2">
-            <h3>Income:</h3>
+            </div>
           </div>
-          <div class="col-md-2 col-md-offset-8">
-            <button class="btn btn-default" type="">Add</button>
-          </div>
-        </div>
-        <div class="well">
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <h3>Expenses:</h3>
-          </div>
-          <div class="col-md-2 col-md-offset-8">
-            <button class="btn btn-default" type="">Add</button>
-          </div>
-        </div>
-        <div class="well">
         </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="app.module.js"></script>
     <script src="layout/topnav.directive.js"></script>
+    <script src="income/income.directive.js"></script>
+
+    <script src="expenses/expenses.directive.js"></script>
+
+    <script src="users/users.directive.js"></script>
+    <script src="users/users.controller.js"></script>
+    <script src="users/users.dataservice.js"></script>
   </body>
 </html>
