@@ -13,6 +13,7 @@ input {
 }
 
 table {
+  margin-left: 20px;
   border-collapse: collapse;
   border-spacing: 0px;
   width: 100%;
@@ -25,3 +26,12 @@ table, th, td {
 thead > tr > td {
   background-color: #dddddd;
 }
+
+/*.report-table {
+  position: relative;
+}
+.report-button {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+}*/
