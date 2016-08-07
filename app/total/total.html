@@ -5,16 +5,24 @@
           <thead>
             <tr>
               <td>
-                Week
+                Week {{users.week}}
               </td>
               <td>
-                Total
+                Amount
               </td>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>{{users.week}}</td>
+              <td>Incomes</td>
+              <td>${{users.totalIncomes}}</td>
+            </tr>
+            <tr>
+              <td>Expenses</td>
+              <td>${{users.totalExpenses}}</td>
+            </tr>
+            <tr>
+              <td>Total</td>
               <td>${{users.total}}</td>
             </tr>
           </tbody>
