@@ -31,10 +31,10 @@ function usersService($http) {
     var budgets = $http.get('/budgets/week/' + week)
       .then(function(data){
         var items = data.data[0];
-        items.totalIncomes = items.incomes.map((income) => parseFloat(income.amount)).reduce(function(prev, curr) {
+        items.totalIncomes = items.incomes.map((income) => parseInt(parseFloat(income.amount)*10)).reduce(function(prev, curr) {
           return prev + curr;
         }, 0);
-        items.totalExpenses = items.expenses.map((income) => parseFloat(income.amount)).reduce(function(prev, curr) {
+        items.totalExpenses = items.expenses.map((income) => parseInt(parseFloat(income.amount)*10)).reduce(function(prev, curr) {
           return prev + curr;
         }, 0);
         vm.data = items;

@@ -47,7 +47,7 @@ function UsersController(dataservice) {
         text: 'Expenses, Incomes, Total'
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>${point.y}</b>'
+        pointFormat: '{series.name}: <b>${point.label}</b>'
       },
       plotOptions: {
         pie: {
@@ -64,15 +64,16 @@ function UsersController(dataservice) {
         colorByPoint: true,
         data: [{
           name: 'Incomes',
-          y: budgets.totalIncomes
+          y: budgets.totalIncomes/10,
+          label: (budgets.totalIncomes/10).toFixed(2)
         }, {
           name: 'Expenses',
-          y: budgets.totalExpenses,
-          sliced: true,
-          selected: true
+          y: budgets.totalExpenses/10,
+          label: (budgets.totalExpenses/10).toFixed(2)
         }, {
           name: 'Total',
-          y: budgets.totalIncomes - budgets.totalExpenses
+          y: (budgets.totalIncomes - budgets.totalExpenses)/10,
+          label: ((budgets.totalIncomes - budgets.totalExpenses)/10).toFixed(2)
         }]
       }]
     });
@@ -84,7 +85,7 @@ function UsersController(dataservice) {
       .then(function(budgets) {
         vm.incomes = budgets.incomes;
         vm.expenses = budgets.expenses;
-        vm.total = budgets.totalIncomes - budgets.totalExpenses;
+        vm.total = ((budgets.totalIncomes - budgets.totalExpenses) /10).toFixed(2);
         createChart(budgets);
       });
   }
