@@ -40,7 +40,7 @@ function UsersController(dataservice) {
       expenses: budgets.totalExpenses/10,
       total: (budgets.totalIncomes - budgets.totalExpenses)/10
     };
-    
+
     Highcharts.chart('chart-container', {
 
       chart: {
@@ -53,20 +53,10 @@ function UsersController(dataservice) {
         text: 'Expenses, Incomes, Total'
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>${point.label}</b>'
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: false
-          },
-          showInLegend: true
-        }
+        pointFormat: '{series.name} <b>${point.label}</b>'
       },
       series: [{
-        name: vm.week,
+        name: 'Week: ' + vm.week,
         colorByPoint: true,
         data: [{
           name: 'Incomes',
@@ -91,6 +81,8 @@ function UsersController(dataservice) {
       .then(function(budgets) {
         vm.incomes = budgets.incomes;
         vm.expenses = budgets.expenses;
+        vm.totalIncomes = ((budgets.totalIncomes)/10).toFixed(2);
+        vm.totalExpenses = ((budgets.totalExpenses)/10).toFixed(2);
         vm.total = ((budgets.totalIncomes - budgets.totalExpenses) /10).toFixed(2);
         createChart(budgets);
       });

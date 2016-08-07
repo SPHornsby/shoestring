@@ -40,7 +40,6 @@ function usersService($http) {
         vm.data = items;
         return data.data[0];
       });
-    
     return budgets;
     //return $http.get('/budgets/week/' + week);
   }
