@@ -8,9 +8,10 @@ function UsersController(dataservice) {
   vm.list = [];
   vm.addIncome = addIncome;
   vm.addExpense = addExpense;
-  vm.name = "Sean";
+  vm.name = 'Sean';
   vm.week = 25;
   vm.budget = {};
+  vm.total = 400;
   activate();
 
   function activate() {
@@ -18,11 +19,7 @@ function UsersController(dataservice) {
   }
 
   function addIncome() {
-    var data = {};
-    data.input = vm.income;
-    data.name = vm.name;
-    data.week = vm.week;
-    data.type = "incomes";
+    var data = {input: vm.income, name: vm.name, week: vm.week, type: 'incomes'};
     return dataservice.addIncome(data)
       .then(function() {
         vm.income = {};
@@ -30,11 +27,7 @@ function UsersController(dataservice) {
       });
   }
   function addExpense() {
-    var data = {};
-    data.input = vm.expense;
-    data.name = vm.name;
-    data.week = vm.week;
-    data.type = "expenses";
+    var data = {input: vm.expense, name: vm.name, week: vm.week, type: 'expenses'};
     return dataservice.addExpense(data)
       .then(function() {
         vm.expense = {};

@@ -9,8 +9,6 @@ function usersService($http) {
     addIncome: addIncome,
     addExpense: addExpense,
     getBudget: getBudget,
-    getIncomes: getIncomes,
-    getExpenses: getExpenses,
     getUser: getUser
   }
 
@@ -28,15 +26,6 @@ function usersService($http) {
   }
   function getBudget(week) {
     return $http.get('/budgets/week/' + week);
-  }
-  function getIncomes() {
-    return $http.get('/users/user/incomes')
-      .then()
-      .catch();
-  }
-
-  function getExpenses() {
-
   }
   function getUser() {
     return $http.get('users/user');
