@@ -35,6 +35,12 @@ function UsersController(dataservice) {
   }
 
   function createChart(budgets) {
+    var formattedData = {
+      incomes: budgets.totalIncomes/10,
+      expenses: budgets.totalExpenses/10,
+      total: (budgets.totalIncomes - budgets.totalExpenses)/10
+    };
+    
     Highcharts.chart('chart-container', {
 
       chart: {
@@ -64,16 +70,16 @@ function UsersController(dataservice) {
         colorByPoint: true,
         data: [{
           name: 'Incomes',
-          y: budgets.totalIncomes/10,
-          label: (budgets.totalIncomes/10).toFixed(2)
+          y: formattedData.incomes,
+          label: formattedData.incomes.toFixed(2)
         }, {
           name: 'Expenses',
-          y: budgets.totalExpenses/10,
-          label: (budgets.totalExpenses/10).toFixed(2)
+          y: formattedData.expenses,
+          label: formattedData.expenses.toFixed(2)
         }, {
           name: 'Total',
-          y: (budgets.totalIncomes - budgets.totalExpenses)/10,
-          label: ((budgets.totalIncomes - budgets.totalExpenses)/10).toFixed(2)
+          y: formattedData.total,
+          label: formattedData.total.toFixed(2)
         }]
       }]
     });
