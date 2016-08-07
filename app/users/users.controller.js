@@ -10,8 +10,7 @@ function UsersController(dataservice) {
   vm.addExpense = addExpense;
   vm.name = 'Sean';
   vm.week = 25;
-  vm.budget = {};
-  vm.total = 400;
+
   activate();
 
   function activate() {
@@ -34,19 +33,60 @@ function UsersController(dataservice) {
         getBudget();
       });
   }
-  function getIncomes() {
-    return dataservice.getIncomes()
-      .then(function(data) {
 
-      })
+  function createChart(budgets) {
+    console.log(budgets);
+    Highcharts.chart('chart-container', {
+
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: 'Expenses, Incomes, Total'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: false
+          },
+          showInLegend: true
+        }
+      },
+      series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+          name: 'Incomes',
+          y: budgets.totalIncomes
+        }, {
+          name: 'Expenses',
+          y: budgets.totalExpenses,
+          sliced: true,
+          selected: true
+        }, {
+          name: 'Total',
+          y: budgets.totalIncomes - budgets.totalExpenses
+        }]
+      }]
+    });
   }
+
   function getBudget() {
     var week = vm.week;
     return dataservice.getBudget(week)
-      .then(function(data) {
-        vm.budget = data.data[0];
-        vm.incomes = vm.budget.incomes;
-        vm.expenses = vm.budget.expenses;
+      .then(function(budgets) {
+        vm.incomes = budgets.incomes;
+        vm.expenses = budgets.expenses;
+        vm.total = budgets.totalIncomes - budgets.totalExpenses;
+        createChart(budgets);
       });
   }
 }
