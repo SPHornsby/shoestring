@@ -10,7 +10,7 @@ function UsersController(dataservice) {
   vm.addExpense = addExpense;
   vm.name = 'Sean';
   vm.week = 25;
-
+  vm.chartType = 'column';
   activate();
 
   function activate() {
@@ -35,20 +35,19 @@ function UsersController(dataservice) {
   }
 
   function createChart(budgets) {
-    console.log(budgets);
     Highcharts.chart('chart-container', {
 
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
-        type: 'pie'
+        type: vm.chartType
       },
       title: {
         text: 'Expenses, Incomes, Total'
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>${point.y}</b>'
       },
       plotOptions: {
         pie: {
@@ -61,7 +60,7 @@ function UsersController(dataservice) {
         }
       },
       series: [{
-        name: 'Brands',
+        name: vm.week,
         colorByPoint: true,
         data: [{
           name: 'Incomes',
