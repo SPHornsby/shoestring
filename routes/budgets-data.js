@@ -26,14 +26,12 @@ module.exports = function budgetsData(db) {
   }
 
   function addIncome(data, callback) {
-    console.log(data);
     collection.updateOne({name: data.name, week: data.week}, {$push: {incomes:data.input}}, function(err, result) {
       callback();
     });
   }
 
   function addExpense(data, callback) {
-    console.log(data);
     collection.updateOne({name: data.name, week: data.week}, {$push: {expenses:data.input}}, function(err, result) {
       callback();
     });
