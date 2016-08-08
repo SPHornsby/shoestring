@@ -1,3 +1,12 @@
+body {
+  background-color: #D5EBF2;
+}
+
+h1 {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+}
+
 .expenses, .income {
   margin-top: 20px;
 }
@@ -7,15 +16,22 @@ input {
   padding: 0;
   margin: 0;
   border: 0;
-  background-color: rgba(179, 255, 203, 1);
+  background-color: #BCEBB7;
   width: 100%;
+}
+.expense-last-row > td > input {
+  background-color: #F2B3B3
 }
 
 table {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+  font-size: 16px;
   margin-left: 20px;
   border-collapse: collapse;
   border-spacing: 0px;
   width: 100%;
+  background-color: white;
 }
 
 table, th, td {
@@ -23,8 +39,29 @@ table, th, td {
   border: 1px solid black;
 }
 thead > tr > td {
+  background-color: #aaaaaa;
+}
+.income-last-row {
+  background-color: #BCEBB7;
+}
+.expense-last-row {
+  background-color: #F2B3B3;
+}
+.bottom {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  background-color: #aaaaaa;
+}
+.total-table {
+  margin-bottom: 20px;
+}
+#total-row {
   background-color: #dddddd;
 }
-tr:last-child {
-  background-color: rgba(179, 255, 203, 1);
+.amount {
+  text-align: right;
+}
+.center {
+  text-align: center;
 }

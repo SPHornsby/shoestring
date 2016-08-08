@@ -1,0 +1,30 @@
+<h3>Total:</h3>
+<div class="row total-table">
+      <div class="col-sm-6 col-md-10">
+        <table>
+          <thead>
+            <tr>
+              <td>
+                Week {{users.week}}
+              </td>
+              <td>
+                Amount
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Incomes</td>
+              <td>${{users.totalIncomes}}</td>
+            </tr>
+            <tr>
+              <td>Expenses</td>
+              <td>${{users.totalExpenses}}</td>
+            </tr>
+            <tr id="total-row">
+              <td>Total</td>
+              <td>${{users.total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
