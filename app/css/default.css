@@ -48,10 +48,11 @@ thead > tr > td {
   background-color: #F2B3B3;
 }
 .bottom {
+
   padding-top: 10px;
   padding-bottom: 20px;
   margin-top: 20px;
-  background-color: #aaaaaa;
+  background-color: #82AFB8;
 }
 .total-table {
   margin-bottom: 20px;
@@ -64,4 +65,13 @@ thead > tr > td {
 }
 .center {
   text-align: center;
+}
+.topbar {
+  color: white;
+  background-color: #82AFB8;
+}
+.topbar > h1 {
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 20px;
 }
