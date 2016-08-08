@@ -1,7 +1,7 @@
 module.exports = function budgetsData(db) {
   var collection = db.collection('ssbudgets');
 
-  return {findByWeek, create, findAll, addIncome, addExpense, findByUser};
+  return {findByWeek, create, findAll, addIncome, addExpense, findByUser, removeIncome, removeExpense};
 
   function create(user, callback) {
     collection.insert(user, function(err, result) {
@@ -35,5 +35,15 @@ module.exports = function budgetsData(db) {
     collection.updateOne({name: data.name, week: data.week}, {$push: {expenses:data.input}}, function(err, result) {
       callback();
     });
+  }
+  function removeIncome(data, callback) {
+    collection.update({name: data.name, week: data.week}, {$pull: {incomes: {time: data.time}}}, function(err, result) {
+      callback();
+    })
+  }
+  function removeExpense(data, callback) {
+    collection.update({name: data.name, week: data.week}, {$pull: {expenses: {time: data.time}}}, function(err, result) {
+      callback();
+    })
   }
 };
