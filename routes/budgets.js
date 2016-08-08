@@ -35,7 +35,6 @@ module.exports = function budgets(budget) {
   });
   router.post('/', function(req, res, next) {
     var data = req.body;
-    console.log(data);
     res.send(data);
   });
   router.put('/week/:weekID', function(req, res, next) {
@@ -49,9 +48,20 @@ module.exports = function budgets(budget) {
         res.send();
       });
     } else {
-      res.send("no type");
+      res.send();
     }
-
+  });
+  router.put('/remove/income', function(req, res, next) {
+    var data = req.body;
+    budget.removeIncome(data, function(err, doc) {
+      res.send();
+    });
+  });
+  router.put('/remove/expense', function(req, res, next) {
+    var data = req.body;
+    budget.removeExpense(data, function(err, doc) {
+      res.send();
+    });
   });
   return router;
 };
