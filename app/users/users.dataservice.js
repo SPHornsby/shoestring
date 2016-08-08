@@ -11,12 +11,15 @@ function usersService($http) {
     addIncome: addIncome,
     addExpense: addExpense,
     getBudget: getBudget,
-    getUser: getUser
+    getUser: getUser,
+    removeIncome: removeIncome,
+    removeExpense: removeExpense
   };
 
 
 
   function addIncome(data) {
+    console.log(data);
     return $http.put('/budgets/week/' + data.week , JSON.stringify(data))
       .then()
       .catch();
@@ -45,5 +48,15 @@ function usersService($http) {
   }
   function getUser() {
     return $http.get('users/user');
+  }
+  function removeIncome(data) {
+    return $http.put('/budgets/remove/income', JSON.stringify(data))
+      .then()
+      .catch();
+  }
+  function removeExpense(data) {
+    return $http.put('/budgets/remove/expense', JSON.stringify(data))
+      .then()
+      .catch();
   }
 }

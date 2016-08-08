@@ -8,6 +8,8 @@ function UsersController(dataservice) {
   vm.list = [];
   vm.addIncome = addIncome;
   vm.addExpense = addExpense;
+  vm.removeIncome = removeIncome;
+  vm.removeExpense = removeExpense;
   vm.name = 'Sean';
   vm.week = 25;
   vm.chartType = 'column';
@@ -19,8 +21,9 @@ function UsersController(dataservice) {
 
   function addIncome() {
     if (vm.income.amount === undefined) {
-      vm.income.amount - 0;
+      vm.income.amount = 0;
     }
+    vm.income.time = Date();
     var data = {input: vm.income, name: vm.name, week: vm.week, type: 'incomes'};
     return dataservice.addIncome(data)
       .then(function() {
@@ -29,6 +32,10 @@ function UsersController(dataservice) {
       });
   }
   function addExpense() {
+    if (vm.expense.amount === undefined) {
+      vm.expense.amount = 0;
+    }
+    vm.expense.time = Date();
     var data = {input: vm.expense, name: vm.name, week: vm.week, type: 'expenses'};
     return dataservice.addExpense(data)
       .then(function() {
@@ -88,11 +95,25 @@ function UsersController(dataservice) {
         vm.totalExpenses = ((budgets.totalExpenses)/10).toFixed(2);
         vm.total = ((budgets.totalIncomes - budgets.totalExpenses) /10).toFixed(2);
         if (vm.total > 0) {
-          $("#total-row").css("background-color", "#BCEBB7");
+          $('#total-row').css('background-color', '#BCEBB7');
         } else {
           $('#total-row').css('background-color', '#F2B3B3');
         }
         createChart(budgets);
+      });
+  }
+  function removeIncome(line) {
+    var data = {name: vm.name, week: vm.week, time: line};
+    return dataservice.removeIncome(data)
+      .then(function() {
+        getBudget();
+      });
+  }
+  function removeExpense(line) {
+    var data = {name: vm.name, week: vm.week, time: line};
+    return dataservice.removeExpense(data)
+      .then(function() {
+        getBudget();
       });
   }
 }
