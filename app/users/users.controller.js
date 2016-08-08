@@ -18,6 +18,9 @@ function UsersController(dataservice) {
   }
 
   function addIncome() {
+    if (vm.income.amount === undefined) {
+      vm.income.amount - 0;
+    }
     var data = {input: vm.income, name: vm.name, week: vm.week, type: 'incomes'};
     return dataservice.addIncome(data)
       .then(function() {
@@ -84,6 +87,11 @@ function UsersController(dataservice) {
         vm.totalIncomes = ((budgets.totalIncomes)/10).toFixed(2);
         vm.totalExpenses = ((budgets.totalExpenses)/10).toFixed(2);
         vm.total = ((budgets.totalIncomes - budgets.totalExpenses) /10).toFixed(2);
+        if (vm.total > 0) {
+          $("#total-row").css("background-color", "#BCEBB7");
+        } else {
+          $('#total-row').css('background-color', '#F2B3B3');
+        }
         createChart(budgets);
       });
   }

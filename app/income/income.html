@@ -16,7 +16,7 @@
               <td>
                 Category
               </td>
-              <td>
+              <td class="amount">
                 Amount
               </td>
               <td></td>
@@ -27,13 +27,13 @@
               <td>{{line.name}}</td>
               <td>{{line.category}}</td>
               <td class="amount">${{line.amount}}</td>
-              <td><button class="btn btn-danger" type="">X</button></td>
+              <td class="center"><button class="btn btn-danger" type="">X</button></td>
             </tr>
-            <tr>
+            <tr class="income-last-row">
               <td><input type="text" name="name" value="" ng-model="users.income.name" ng-required="required"></td>
               <td><input type="text" name="name" value="" ng-model="users.income.category"></td>
-              <td><input type="text" name="name" value="" ng-model="users.income.amount" ng-required="required"></td>
-              <td><button class="btn btn-success report-button" type="" ng-click="users.addIncome()">+</button></td>
+              <td><input type="number" min="0" name="amount" value="" ng-model="users.income.amount" required></td>
+              <td class="center"><button class="btn btn-success report-button" type="" ng-click="users.addIncome()">+</button></td>
             </tr>
           </tbody>
         </table>

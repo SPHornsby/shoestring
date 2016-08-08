@@ -16,13 +16,17 @@ input {
   padding: 0;
   margin: 0;
   border: 0;
-  background-color: rgba(179, 255, 203, 1);
+  background-color: #BCEBB7;
   width: 100%;
+}
+.expense-last-row > td > input {
+  background-color: #F2B3B3
 }
 
 table {
   font-family: 'Shadows Into Light', cursive;
   font-weight: bold;
+  font-size: 16px;
   margin-left: 20px;
   border-collapse: collapse;
   border-spacing: 0px;
@@ -37,8 +41,11 @@ table, th, td {
 thead > tr > td {
   background-color: #aaaaaa;
 }
-tr:last-child {
-  background-color: rgba(179, 255, 203, 1);
+.income-last-row {
+  background-color: #BCEBB7;
+}
+.expense-last-row {
+  background-color: #F2B3B3;
 }
 .bottom {
   padding-top: 10px;
@@ -48,4 +55,13 @@ tr:last-child {
 }
 .total-table {
   margin-bottom: 20px;
+}
+#total-row {
+  background-color: #dddddd;
+}
+.amount {
+  text-align: right;
+}
+.center {
+  text-align: center;
 }
