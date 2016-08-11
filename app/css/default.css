@@ -1,4 +1,6 @@
 body {
+  position: relative;
+  padding-bottom: 150px;
   background-color: #D5EBF2;
 }
 
@@ -47,13 +49,6 @@ thead > tr > td {
 .expense-last-row {
   background-color: #F2B3B3;
 }
-.bottom {
-
-  padding-top: 10px;
-  padding-bottom: 20px;
-  margin-top: 20px;
-  background-color: #82AFB8;
-}
 .total-table {
   margin-bottom: 20px;
 }
@@ -74,4 +69,13 @@ thead > tr > td {
   margin: 0;
   padding-top: 15px;
   padding-bottom: 20px;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #82AFB8;
+  text-align: center;
 }

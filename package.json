@@ -18,8 +18,13 @@
   "homepage": "https://github.com/SPHornsby/shoestrings#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "connect-mongodb-session": "^1.1.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
+    "express-session": "^1.14.0",
     "highcharts": "^4.2.6",
-    "mongodb": "^2.2.5"
+    "mongodb": "^2.2.5",
+    "passport": "^0.3.2",
+    "passport-auth0": "^0.5.2"
   }
 }
