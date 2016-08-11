@@ -9,7 +9,8 @@ var auth = require('./routes/auth.js');
 var session = require('express-session');
 var user = process.env.MDB;
 var pw = process.env.MDBPW;
-var url = 'mongodb://' + user + ':' + pw + '@ds029745.mlab.com:29745/heroku_8xrhcd53';
+//var url = 'mongodb://' + user + ':' + pw + '@ds029745.mlab.com:29745/heroku_8xrhcd53';
+var url = process.env.NONGO_OLD;
 var clientSecret = process.env.A0_CS;
 var MongoDBStore = require('connect-mongodb-session')(session);
 
