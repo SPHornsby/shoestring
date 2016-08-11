@@ -6,7 +6,6 @@ var users = require('./routes/users.js');
 var budgetsData = require('./routes/budgets-data.js');
 var budgets = require('./routes/budgets.js');
 var auth = require('./routes/auth.js');
-var callback = require('./routes/callback.js');
 var session = require('express-session');
 var user = process.env.MDB;
 var pw = process.env.MDBPW;
