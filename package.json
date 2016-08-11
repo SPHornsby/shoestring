@@ -4,7 +4,8 @@
   "description": "An app for people who need to budget",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "express-session": "^1.14.0",
     "highcharts": "^4.2.6",
     "mongodb": "^2.2.5",
+    "nodemon": "^1.10.0",
     "passport": "^0.3.2",
     "passport-auth0": "^0.5.2"
   }
