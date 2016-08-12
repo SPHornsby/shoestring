@@ -45,7 +45,6 @@ MongoClient.connect(url, function(err, db) {
     })
     .use(bodyParser.json())
     .use(auth)
-    .use('/users', users(user))
     .use('/budgets', budgets(budget))
     .use(express.static('app'))
     .listen(port);
